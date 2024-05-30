@@ -36,7 +36,10 @@ public class AddFunction implements iFunction
         for (String s : ab) {
            stringBuilder.append(s).append(" ");
            count += s.length();
-           if (count >= 45) stringBuilder.append("\n");
+           if (count >= 45) {
+               count = 0;
+               stringBuilder.append("\n");
+           }
         }
 
         configurationSection.set(medTerm.toLowerCase(),stringBuilder.toString());
