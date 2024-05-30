@@ -34,7 +34,7 @@ public class AddFunction implements iFunction
 
         int count = 0;
         for (String s : ab) {
-           stringBuilder.append(s);
+           stringBuilder.append(s).append(" ");
            count += s.length();
            if (count >= 60) stringBuilder.append("\n");
         }
