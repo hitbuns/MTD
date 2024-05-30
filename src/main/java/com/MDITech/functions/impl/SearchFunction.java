@@ -41,11 +41,18 @@ public class SearchFunction implements iFunction {
 
         ConfigurationSection configurationSection = config.getorAddConfigurationSection("med-term-saves");
         ChoiceFunction choiceFunction = MDI.getInstance().choiceFunction;
-        choiceFunction.assignRunnables(configurationSection.getKeys(false)
+        KeyedRunnable[] keyedRunnables = configurationSection.getKeys(false)
                 .stream()
                 .filter(s -> Arrays.stream(copy).anyMatch(s1 -> s.toLowerCase().contains(s1.toLowerCase()
                         .replace(".","_")))).map(s -> KeyedRunnable.of(s,()-> this.display(s)))
-                .toArray(KeyedRunnable[]::new));
+                .toArray(KeyedRunnable[]::new);
+
+        if (keyedRunnables.length == 0) {
+            System.out.println("No search results found for Med-Term Search '"+String.join(" ",copy)+"'");
+            return ResponseCode.DENY;
+        }
+
+        choiceFunction.assignRunnables(keyedRunnables);
         choiceFunction.setState(true);
         choiceFunction.displayChoices();
 
