@@ -37,6 +37,8 @@ public class RemoveFunction implements iFunction {
             choiceFunction.setState(false);
                 }),
                 KeyedRunnable.of("No",()-> choiceFunction.setState(false)));
+        choiceFunction.displayChoices();
+        choiceFunction.setState(true);
 
         return ResponseCode.ALLOW;
     }
