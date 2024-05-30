@@ -27,7 +27,19 @@ public class AddFunction implements iFunction
 
         String definition = v.substring(a+1),medTerm = v.substring(b+1,a);
         ConfigurationSection configurationSection = MDI.getConfig().getorAddConfigurationSection("med-term-saves");
-        configurationSection.set(medTerm,definition);
+
+        String[] ab = definition.split(" ");
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        int count = 0;
+        for (String s : ab) {
+           stringBuilder.append(s);
+           count += s.length();
+           if (count >= 60) stringBuilder.append("\n");
+        }
+
+        configurationSection.set(medTerm.toLowerCase(),stringBuilder.toString());
         MDI.getConfig().save();
 
         return ResponseCode.ALLOW;
