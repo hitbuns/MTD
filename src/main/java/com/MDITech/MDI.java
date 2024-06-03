@@ -28,7 +28,7 @@ public class MDI {
 
     Scanner scanner = new Scanner(System.in);
     public final ChoiceFunction choiceFunction = new ChoiceFunction();
-    File MDIDirectory = new File(System.getProperty("user.dir")+File.separator+"MDITech");
+    public final File MDIDirectory = new File(System.getProperty("user.dir")+File.separator+"MDITech");
     private static Config config;
 
     public static Config getConfig() {
