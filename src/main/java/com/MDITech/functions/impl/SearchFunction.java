@@ -44,7 +44,7 @@ public class SearchFunction implements iFunction {
         KeyedRunnable[] keyedRunnables = configurationSection.getKeys(false)
                 .stream()
                 .filter(s -> Arrays.stream(copy).anyMatch(s1 -> s.toLowerCase().contains(s1.toLowerCase()
-                        .replace(".","_")))).map(s -> KeyedRunnable.of(s,()-> this.display(s)))
+                        .replace(".","_")))).sorted(String.CASE_INSENSITIVE_ORDER::compare).map(s -> KeyedRunnable.of(s,()-> this.display(s)))
                 .toArray(KeyedRunnable[]::new);
 
         if (keyedRunnables.length == 0) {
