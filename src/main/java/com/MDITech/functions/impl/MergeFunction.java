@@ -36,6 +36,10 @@ public class MergeFunction implements iFunction {
         if (args.length == 2 && args[1].equalsIgnoreCase("all")) {
 
 
+            for (String s : parent.list()) {
+                if (mergeFile(s)) System.out.println("Successfully merged "+s+" contents to main save file!");
+                else System.out.println("Failed to merge "+s+" contents to main save file!");
+            }
 
             return ResponseCode.ALLOW;
         }
@@ -65,9 +69,7 @@ public class MergeFunction implements iFunction {
                     config.getorAddConfigurationSection("med-term-saves"),
             saveTo = main.getorAddConfigurationSection("med-term-saves");
 
-            configurationSection.getKeys(false).forEach(s -> {
-                saveTo.set(s,configurationSection.getString(s));
-            });
+            configurationSection.getKeys(false).forEach(s -> saveTo.set(s,configurationSection.getString(s)));
 
             main.save();
 
@@ -80,11 +82,11 @@ public class MergeFunction implements iFunction {
 
     @Override
     public String getKey() {
-        return null;
+        return "!merge";
     }
 
     @Override
     public String getUsage() {
-        return null;
+        return "!merge <all/%file_name%>";
     }
 }
