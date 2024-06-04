@@ -29,7 +29,7 @@ public class MergeFunction implements iFunction {
     @Override
     public int receiveArg(String... args) {
 
-        if (args.length < 1) {
+        if (args.length < 2) {
             System.out.println("Usage: "+getUsage());
             return ResponseCode.DENY;
         }
