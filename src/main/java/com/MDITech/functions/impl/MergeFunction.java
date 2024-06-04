@@ -30,6 +30,7 @@ public class MergeFunction implements iFunction {
     public int receiveArg(String... args) {
 
         if (args.length < 1) {
+            System.out.println("Usage: "+getUsage());
             return ResponseCode.DENY;
         }
 
