@@ -1,4 +1,28 @@
 med-term-saves:
+  gingivitis: 'Inflammation of the Gums '
+  oliguria: 'Condition where px has low urine output '
+  peripheral neuropathy: "A condition where the px has weakness, numbness and pain\
+    \ \nfrom nerve damage usually locating in the hands and feet \n\\n\\nCommon causes\
+    \ of this include diabetes, injuries, \ninfections and exposures to toxins. "
+  pjp: "AKA. Pneumocystis jiroveci pneumonia. A fungal infection \nof the lungs "
+  toxoplasma encephalitis: "A brain inflammation (encephalitis) associated with \n\
+    Toxoplasma gondii. "
+  encephalitis: 'Brain inflammation '
+  endocarditis: "Inflammation of the inside lining of the heart chambers \nand heart\
+    \ valves. Usually caused by bacterial or rarely \nby a fungal infeciton "
+  qt interval: "This represents the time it takes for ventricular contraction \n(depolorisation)\
+    \ of the heart and the ventricular relaxation \n(repolarisation) of the heart\
+    \ to occur "
+  torsades de pointes: "A life threatening tachycardia that occurs in the heart's\
+    \ \nventricles. (Fast heart beat) It usually happens in patients \nwho have conditions\
+    \ and/or are undergoing treatment \nthat influences prolonged QT Intervals leading\
+    \ to these \ndangerous arrythmias "
+  myasthenia gravis: "Chronic autoimmune disorder in which antibodes destroy \ncommunication\
+    \ between nerves and muscle, resulting \nin weakness of the skeletal muscles.\
+    \ This affects the \nvoluntary muscles of the body such as the eyes, mouth, \n\
+    throat and limbs "
+  cholestatic jaundice: "AKA. Cholestasis. Condition where flow of bile from the \n\
+    liver is ceased or slowed down "
   mycobacterium avium complex (mac): "Bacterial infection resulting from the Mycobacterium\
     \ \nAvium "
   hepatic encephalopathy: "Brain dysfunction due to brain damage (Encephalopathy)\
