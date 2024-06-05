@@ -53,9 +53,36 @@ public class ChoiceFunction implements iFunction, iHidden {
     @Override
     public int receiveArg(String... args) {
         try {
+            int code = -1;
 
-            int code = execute(Integer.parseInt(args[0])) ? ResponseCode.ALLOW :
-                    ResponseCode.DENY;
+            if (!(args[0].contains("-") || args[0].contains(","))) {
+                code = execute(Integer.parseInt(args[0])) ? ResponseCode.ALLOW :
+                        ResponseCode.DENY;
+            } else {
+
+                String[] splitter = args[0].split(",");
+                for (String s : splitter) {
+                    if (s.contains("-")) {
+
+                        try {
+
+                            String[] split = s.split("-");
+
+                            int begin = Integer.parseInt(split[0]),end = Integer.parseInt(split[1]);
+
+                            for (int i = begin; i <= end; i++) {
+
+                                if (execute(i) && code != ResponseCode.ALLOW) code = ResponseCode.ALLOW;
+
+                            }
+                        } catch (Exception exception) {
+                            if (code != ResponseCode.ALLOW) code = ResponseCode.DENY;
+                        }
+
+                    } else if (execute(Integer.parseInt(s))) code = ResponseCode.ALLOW;
+                }
+
+            }
 
             if (code == ResponseCode.ALLOW) {
                 assignRunnables(null);
