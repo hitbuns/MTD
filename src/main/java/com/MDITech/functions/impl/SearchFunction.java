@@ -11,6 +11,11 @@ import java.util.Arrays;
 
 public class SearchFunction implements iFunction {
 
+    static SearchFunction Instance;
+
+    public SearchFunction() {
+        Instance = this;
+    }
 
     public void display(String key) {
         System.out.println("===================================");
