@@ -48,7 +48,7 @@ public class SearchFunction implements iFunction {
         ChoiceFunction choiceFunction = MDI.getInstance().choiceFunction;
         KeyedRunnable[] keyedRunnables = configurationSection.getKeys(false)
                 .stream()
-                .filter(s -> Arrays.stream(copy).anyMatch(s1 -> s.toLowerCase().contains(s1.toLowerCase()
+                .filter(s -> Arrays.stream(copy).anyMatch(s1 -> s.toLowerCase().contains(s1.toLowerCase().replace(",","")
                         .replace(".","_")))).sorted(String.CASE_INSENSITIVE_ORDER::compare).map(s -> KeyedRunnable.of(s,()-> this.display(s)))
                 .toArray(KeyedRunnable[]::new);
 
